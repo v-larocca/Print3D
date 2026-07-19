@@ -45,7 +45,6 @@ class EProject {
     public function getIdAutore(): int { return $this->idAutore; }
     public function setIdAutore(int $idAutore): void { $this->idAutore = $idAutore; }
 
-    // --- Metodi di comodo ---
 
     // Restituisce la descrizione troncata a N caratteri
     public function getDescrizioneBreve(int $lunghezza = 100): string {

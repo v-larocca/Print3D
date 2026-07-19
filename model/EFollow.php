@@ -21,8 +21,7 @@ class EFollow {
     public function getIdFollowed(): int { return $this->idFollowed; }
     public function setIdFollowed(int $idFollowed): void { $this->idFollowed = $idFollowed; }
 
-    // --- Metodi di comodo ---
-
+    
     // EFollow non ha un id singolo ma una chiave composta
     // getId() restituisce un array con i due campi
     // usato da FPersistentManager::deleteObj()

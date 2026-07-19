@@ -21,7 +21,6 @@ class ELike {
     public function getIdProject(): int { return $this->idProject; }
     public function setIdProject(int $idProject): void { $this->idProject = $idProject; }
 
-    // --- Metodi di comodo ---
 
     // ELike non ha un id singolo ma una chiave composta
     // getId() restituisce un array con i due campi
