@@ -30,7 +30,6 @@ class FLike
     // Like e Follow hanno chiave primaria COMPOSTA quindi create e delete sono gestiti manualmente
 
 
-
     // C
     public static function createObject(ELike $obj): bool
     {
@@ -94,7 +93,7 @@ class FLike
     }
 
 
-    // ---------QUERY---------
+    // ---------------QUERY---------------
 
     // Conta i like di un progetto
     public static function countByProject(int $idProject): int

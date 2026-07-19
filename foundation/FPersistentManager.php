@@ -99,7 +99,7 @@ class FPersistentManager
         }
     }
 
-    // D - DELETE
+    // D 
     public function delete(string $table, string $key, $id): bool
     {
         try {

@@ -5,18 +5,18 @@ class FFollow {
     private static string $value = "(:id_follower, :id_followed)";
     private static string $key   = "id_follower";  // chiave composta, gestita manualmente
 
-    // --- Metodi descrittori della tabella ---
+  
 
     public static function getTable(): string { return self::$table; }
     public static function getValue(): string { return self::$value; }
     public static function getKey(): string   { return self::$key; }
     public static function getClass(): string { return self::class; }
 
-    // ================================================
-    // CRUD
-    // ================================================
+    
+    // ------------------CRUD----------------------
+    
 
-    // C - INSERT follow
+    // C 
     public static function createObject(EFollow $obj): bool {
         try {
             $pdo  = FPersistentManager::getInstance()->getPdo();
@@ -32,7 +32,7 @@ class FFollow {
         }
     }
 
-    // R - SELECT — controlla se un follow esiste
+    // R 
     public static function retrieveObject(int $idFollower, int $idFollowed): ?EFollow {
         try {
             $pdo  = FPersistentManager::getInstance()->getPdo();
@@ -56,7 +56,7 @@ class FFollow {
     // U - non applicabile per i follow
     public static function updateObject(): void {}
 
-    // D - DELETE follow
+    // D 
     public static function deleteObject(array $id): bool {
         try {
             $pdo  = FPersistentManager::getInstance()->getPdo();
@@ -73,9 +73,9 @@ class FFollow {
         }
     }
 
-    // ================================================
-    // QUERY AGGIUNTIVE
-    // ================================================
+    
+    // -----------------QUERY AGGIUNTIVE------------------
+    
 
     // Lista dei follower di un utente
     public static function retrieveFollowers(int $idFollowed): array {
@@ -158,9 +158,9 @@ class FFollow {
         return self::retrieveObject($idFollower, $idFollowed) !== null;
     }
 
-    // ================================================
-    // METODI DI SUPPORTO
-    // ================================================
+    
+    // -----------------METODI DI SUPPORTO----------------------
+    
 
     // Costruisce uno o più EFollow dal risultato della query
     public static function createEntity(array $queryResult): EFollow|array {
