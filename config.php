@@ -4,10 +4,10 @@
 // PRINT3D - File di Configurazione
 
 // ----------Database-----------------------------
-define('DB_HOST', 'sql301.infinityfree.com');
-define('DB_NAME', 'if0_42442769_print3d');
-define('DB_USER', 'if0_42442769');
-define('DB_PASS', 'DragonballGT111');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'print3d');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
 // ----------Sessione----------------------------
 define('COOKIE_EXP_TIME', 2592000); // 30 giorni in secondi
