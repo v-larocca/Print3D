@@ -14,9 +14,8 @@ class CUser {
         $view->showRegistrationForm();
     }
 
-    // ================================================
-    // AUTENTICAZIONE
-    // ================================================
+    
+    // --------------AUTENTICAZIONE-------------------
 
     // Crea l'utente nel DB — logica pura, usata anche dai test
     public static function creaUtente(string $username, string $email, string $password): bool {
@@ -53,7 +52,7 @@ class CUser {
         }
     }
 
-    // Verifica le credenziali e avvia la sessione — logica pura, usata anche dai test
+    // Verifica le credenziali e avvia la sessione 
     public static function verificaCredenziali(string $emailOrUsername, string $password): bool {
         // Controlla campi vuoti
         if (empty($emailOrUsername) || empty($password))
@@ -83,7 +82,7 @@ class CUser {
         return true;
     }
 
-    // Azione web — chiamata dal FrontController, interagisce con VUser
+    // chiamata dal FrontController, interagisce con VUser
     public static function login(string $emailOrUsername, string $password): void {
         $view = new VUser();
 
@@ -95,7 +94,7 @@ class CUser {
         }
     }
 
-    // Azione web — chiamata dal FrontController, poi reindirizza alla home
+    //chiamata dal FrontController, poi reindirizza alla home
     public static function logout(): void {
         USession::getInstance();
         USession::unsetSession();
@@ -106,7 +105,6 @@ class CUser {
     }
 
     // Mostra il profilo di un utente — chiamato dal FrontController
-    // $tab: 'uploaded' (default) | 'liked'
     public static function profile(int $idUser, string $tab = 'uploaded'): void {
         $user = self::getProfilo($idUser);
         if (!$user) {
@@ -120,7 +118,7 @@ class CUser {
         $isProfiloProprio = $loggato && $idCorrente === $idUser;
 
         // Il tab "piaciuti" è visibile solo sul proprio profilo
-        // Se qualcuno prova ad accedervi via URL su un profilo altrui, forza "uploaded"
+        
         if ($tab === 'liked' && !$isProfiloProprio)
             $tab = 'uploaded';
 
@@ -169,9 +167,9 @@ class CUser {
         );
     }
 
-    // ================================================
-    // VERIFICA
-    // ================================================
+    
+    // ------------VERIFICA------------------
+    
 
     // Controlla se una email è già registrata
     public static function verificaEmail(string $email): bool {
@@ -202,9 +200,9 @@ class CUser {
         return USession::getSessionElement('ruolo') === 'admin';
     }
 
-    // ================================================
-    // PROFILO
-    // ================================================
+   
+    // --------------------PROFILO-----------------------
+    
 
     public static function getProfilo(int $id): ?EUser {
         return FPersistentManager::retrieveObj("EUser", $id);
@@ -240,9 +238,8 @@ class CUser {
         return $result;
     }
 
-    // ================================================
-    // FUNZIONI ADMIN
-    // ================================================
+    
+    // ---------------FUNZIONI ADMIN----------------------
 
     public static function getAllUtenti(): array {
         if (!self::isAdmin()) return [];
@@ -297,14 +294,14 @@ class CUser {
         $view->dashboard($datiUtenti, $datiProgetti);
     }
 
-    // Azione web — cambia il ruolo e torna al pannello admin
+    // cambia il ruolo e torna al pannello admin
     public static function cambiaRuoloAzione(int $id, string $ruolo): void {
         self::cambiaRuolo($id, $ruolo);
         header('Location: /print3d/User/dashboard');
         exit;
     }
 
-    // Azione web — elimina l'utente e torna al pannello admin
+    //elimina l'utente e torna al pannello admin
     public static function eliminaUtenteAzione(int $id): void {
         self::eliminaUtente($id);
         header('Location: /print3d/User/dashboard');

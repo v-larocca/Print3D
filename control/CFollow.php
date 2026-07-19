@@ -2,10 +2,9 @@
 
 class CFollow {
 
-    // ================================================
-    // FOLLOW — logica pura, usata anche dai test
-    // ================================================
-
+    
+    // -------------FOLLOW--------------
+   
     public static function creaFollow(int $idFollowed): bool {
         if (!CUser::isLoggato())
             return false;
@@ -35,10 +34,9 @@ class CFollow {
         return FFollow::deleteObject($follow->getId());
     }
 
-    // ================================================
-    // AZIONI WEB — chiamate dal FrontController, poi reindirizzano
-    // ================================================
-
+    
+    //chiamate dal FrontController, poi reindirizzano
+    
     public static function segui(int $idFollowed): void {
         self::creaFollow($idFollowed);
         header('Location: /print3d/User/profile/' . $idFollowed);
@@ -51,9 +49,8 @@ class CFollow {
         exit;
     }
 
-    // ================================================
-    // VERIFICA E CONTEGGIO
-    // ================================================
+    
+    // --------------VERIFICA E CONTEGGIO---------------
 
     public static function staSeguendo(int $idFollowed): bool {
         if (!CUser::isLoggato())
@@ -71,10 +68,9 @@ class CFollow {
         return FFollow::countFollowing($idUser);
     }
 
-    // ================================================
-    // RECUPERO — accessibile a tutti, senza login
-    // ================================================
-
+    //
+    // ------------------SRECUPERO---------------
+    // 
     public static function getFollower(int $idUser): array {
         return FFollow::retrieveFollowers($idUser);
     }

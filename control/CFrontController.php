@@ -1,10 +1,9 @@
 <?php
 
-/**
- * Front Controller — unico punto di ingresso dell'applicazione
- * Legge l'URL e chiama il controller e metodo corrispondente
- * URL formato: /Print3D/NomeController/nomeMetodo/param1/param2
- */
+//Front Controller — unico punto di ingresso dell'applicazione
+//Legge l'URL e chiama il controller e metodo corrispondente
+//URL formato: /Print3D/NomeController/nomeMetodo/param1/param2
+ 
 class CFrontController {
 
     public function run(string $url): void {
@@ -21,7 +20,6 @@ class CFrontController {
         }
 
         // Costruisce il nome del controller dalla URL
-        // es. "Project" → "CProject"
         $controller = "C" . $result[0];
         $directory  = "control";
         $scanDir    = scandir($directory);
@@ -45,7 +43,7 @@ class CFrontController {
                 $params = array_slice($result, 2);
 
                 // Se la richiesta è POST, aggiunge i dati del form
-                // ATTENZIONE: i campi del form devono essere nello stesso ordine
+                // i campi del form devono essere nello stesso ordine
                 // dei parametri del metodo nel controller
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $params = array_merge($params, array_values($_POST));

@@ -2,11 +2,10 @@
 
 class CProject {
 
-    // ================================================
-    // CREAZIONE E GESTIONE
-    // ================================================
-
-    // Crea un nuovo progetto e carica i file associati — logica pura, usata anche dai test
+    
+    // ------------------CREAZIONE E GESTIONE-----------------------
+   
+    // Crea un nuovo progetto e carica i file associati 
     // Usa una transazione per garantire atomicità — o tutto o niente
     public static function salvaProgetto(
         string $titolo,
@@ -52,7 +51,7 @@ class CProject {
         }
     }
 
-    // Azione web — chiamata dal FrontController, interagisce con VProject
+    //chiamata dal FrontController, interagisce con VProject
     public static function creaProgetto(
         string $titolo,
         string $descrizione,
@@ -129,7 +128,7 @@ class CProject {
         );
     }
 
-    // Elimina un progetto e i suoi file — logica pura, usata anche dai test
+    // Elimina un progetto e i suoi file
     // Solo l'autore o l'admin possono farlo
     public static function rimuoviProgetto(int $id): bool {
         if (!CUser::isLoggato()) return false;
@@ -145,17 +144,15 @@ class CProject {
         return FPersistentManager::deleteObj($project);
     }
 
-    // Azione web — chiamata dal FrontController, poi reindirizza alla home
+    //chiamata dal FrontController, poi reindirizza alla home
     public static function eliminaProgetto(int $id): void {
         self::rimuoviProgetto($id);
         header('Location: /print3d/');
         exit;
     }
 
-    // ================================================
-    // VISUALIZZAZIONE
-    // ================================================
-
+    // -----------------VISUALIZZAZIONE------------------------
+  
     // Tutti i progetti per la home con ordinamento
     // $order: 'date' (default) | 'likes' | 'name'
     public static function getAllProgetti(string $order = 'date'): array {
@@ -167,9 +164,7 @@ class CProject {
         return FProject::retrieveByAutore($idAutore);
     }
 
-    // ================================================
-    // CONTROLLO PERMESSI
-    // ================================================
+    //--------------PERMESSI--------------
 
     // Controlla se l'utente in sessione è l'autore del progetto
     public static function isAutore(int $idProgetto): bool {

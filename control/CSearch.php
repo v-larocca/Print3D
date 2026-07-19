@@ -2,9 +2,8 @@
 
 class CSearch {
 
-    // ================================================
-    // FORM E AZIONE WEB — chiamate dal FrontController
-    // ================================================
+    
+    // ------------FORM E AZIONE WEB — chiamate dal FrontController---------
 
     // Mostra il form di ricerca vuoto
     public static function formRicerca(): void {
@@ -42,9 +41,8 @@ class CSearch {
         $view->risultati($tipo, $query, $order, $risultatiProgetti, $risultatiUtenti);
     }
 
-    // ================================================
-    // RICERCA — logica pura, usata anche dai test
-    // ================================================
+    
+    // --------------RICERCA-—--------------
 
     // Cerca progetti per titolo, con ordinamento opzionale
     // Se la query è vuota, restituisce tutti i progetti
