@@ -1,0 +1,133 @@
+/* ================================================
+   PRINT3D — Override minimi sopra Bulma
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #2e63d6 0%, #4f7fe0 30%, #a9c6f0 65%, #eaf1fb 100%);
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.title,
+.subtitle,
+.navbar-item strong,
+.card .title {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Logo/brand più evidente */
+.navbar-item strong.has-text-warning {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+}
+
+/* ================================================
+   CUORE LIKE — animazione dinamica
+   ================================================ */
+
+.like-btn .heart {
+    display: inline-block;
+    transition: color 0.2s ease;
+}
+
+.like-btn.is-liked .heart {
+    color: #ff3860;
+}
+
+@keyframes heart-pop {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.4);
+    }
+
+    60% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.like-btn.animate .heart {
+    animation: heart-pop 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .like-btn.animate .heart {
+        animation: none;
+    }
+}
+
+/* ================================================
+   CARD PROGETTI — intera card cliccabile, altezza uniforme
+   ================================================ */
+
+.columns.is-multiline {
+    align-items: stretch;
+}
+
+a.project-card-link {
+    display: flex;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+a.project-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.project-card .card-image img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-card .card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Spinge tag e like sempre in fondo, anche con descrizioni di lunghezza diversa */
+.project-card .card-content .tags,
+.project-card .card-content .icon-text {
+    margin-top: auto;
+}
+
+/* ================================================
+   TOGGLE PROGETTI / UTENTI — ricerca
+   ================================================ */
+
+.tipo-toggle .button {
+    min-width: 120px;
+}
