@@ -1,6 +1,4 @@
-/* ================================================
-   PRINT3D — Override minimi sopra Bulma
-   ================================================ */
+/* -------------PRINT3D — Override minimi sopra Bulma-------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
@@ -34,9 +32,7 @@ h5,
     letter-spacing: -0.02em;
 }
 
-/* ================================================
-   CUORE LIKE — animazione dinamica
-   ================================================ */
+/* -----------CUORE LIKE — animazione dinamica--------------- */
 
 .like-btn .heart {
     display: inline-block;
@@ -75,9 +71,7 @@ h5,
     }
 }
 
-/* ================================================
-   CARD PROGETTI — intera card cliccabile, altezza uniforme
-   ================================================ */
+/* ---------------------CARD PROGETTI ------------------------- */
 
 .columns.is-multiline {
     align-items: stretch;
@@ -124,9 +118,7 @@ a.project-card-link:hover {
     margin-top: auto;
 }
 
-/* ================================================
-   TOGGLE PROGETTI / UTENTI — ricerca
-   ================================================ */
+/* -----------------TOGGLE PROGETTI / UTENTI — ricerca------------------------*/
 
 .tipo-toggle .button {
     min-width: 120px;
