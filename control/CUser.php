@@ -222,14 +222,6 @@ class CUser {
         return FPersistentManager::updateObj($user, 'username', $username);
     }
 
-    public static function aggiornaPassword(int $id, string $vecchiaPassword, string $nuovaPassword): bool {
-        if (empty($vecchiaPassword) || empty($nuovaPassword)) return false;
-        $user = self::getProfilo($id);
-        if (!$user) return false;
-        if (!password_verify($vecchiaPassword, $user->getPassword())) return false;
-        return FPersistentManager::updateObj($user, 'password', password_hash($nuovaPassword, PASSWORD_DEFAULT));
-    }
-
     public static function eliminaAccount(int $id): bool {
         $user = self::getProfilo($id);
         if (!$user) return false;
